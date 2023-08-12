@@ -5,11 +5,11 @@ import axios from "axios";
 
 function Signup({ close }) {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    userName: "",
+    first_name: "",
+    last_name: "",
+    user_name: "",
     gender: "",
-    email: "",
+    email_id: "",
     phone: "",
     country: "",
     password: "",
@@ -24,11 +24,11 @@ function Signup({ close }) {
   
   useEffect(() => {
     if (
-      formData.firstName &&
-      formData.lastName &&
-      formData.userName &&
+      formData.first_name &&
+      formData.last_name &&
+      formData.user_name &&
       formData.gender &&
-      formData.email &&
+      formData.email_id &&
       formData.phone &&
       formData.country &&
       formData.password &&
@@ -39,11 +39,11 @@ function Signup({ close }) {
       setFormValid(false);
     }
   }, [
-    formData.firstName,
-    formData.lastName,
-    formData.userName,
+    formData.first_name,
+    formData.last_name,
+    formData.user_name,
     formData.gender,
-    formData.email,
+    formData.email_id,
     formData.phone,
     formData.country,
     formData.password,
@@ -63,11 +63,11 @@ function Signup({ close }) {
       return;
     }
     const data = {
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      userName: formData.userName,
+      first_name: formData.first_name,
+      last_name: formData.last_name,
+      user_name: formData.user_name,
       gender: formData.gender,
-      email: formData.email,
+      email_id: formData.email_id,
       phone: formData.phone,
       country: formData.country,
       password: formData.password,
@@ -90,7 +90,7 @@ function Signup({ close }) {
         }, 3000);
       });
   }
-
+  
   return (
     <>
       <HeaderComponent />
@@ -99,27 +99,27 @@ function Signup({ close }) {
           label="First name"
           placeholder="First name"
           required
-          name="firstName"
-          value={formData.firstName}
-          onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+          name="first_name"
+          value={formData.first_name}
+          onChange={(e) => setFormData({ ...formData, first_name: e.target.value })}
           style={{ marginBottom: 16 }}
         />
         <TextInput
           label="Last name"
           placeholder="Last name"
           required
-          name="lastName"
-          value={formData.lastName}
-          onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+          name="last_name"
+          value={formData.last_name}
+          onChange={(e) => setFormData({ ...formData, last_name: e.target.value })}
           style={{ marginBottom: 16 }}
         />
         <TextInput
           label="User name"
           placeholder="User name"
           required
-          name="userName"
-          value={formData.userName}
-          onChange={(e) => setFormData({ ...formData, userName: e.target.value })}
+          name="user_name"
+          value={formData.user_name}
+          onChange={(e) => setFormData({ ...formData, user_name: e.target.value })}
           style={{ marginBottom: 16 }}
         />
         <Select
@@ -141,12 +141,12 @@ function Signup({ close }) {
           style={{ marginBottom: 16 }}
         />
         <TextInput
-          label="Email"
-          placeholder="youremailhere"
+          label="Email id"
+          placeholder="youremail_idhere"
           required
-          name="email"
-          value={formData.email}
-          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          name="email_id"
+          value={formData.email_id}
+          onChange={(e) => setFormData({ ...formData, email_id: e.target.value })}
           style={{ marginBottom: 16 }}
         />
         <TextInput
@@ -163,7 +163,6 @@ function Signup({ close }) {
           placeholder="Select country"
           data={[
             { value: "INDIA", label: "India" },
-            // Add more countries as needed
           ]}
           required
           name="country"

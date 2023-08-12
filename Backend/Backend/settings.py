@@ -1,6 +1,13 @@
 from pathlib import Path
 
+import secrets
+
 # Load environment variables from .env file
+
+def generate_secret_key():
+    return secrets.token_hex(32)
+
+SECRET_KEY = generate_secret_key()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -13,8 +20,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-
 
 # Application definition
 
@@ -41,9 +46,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",
-]
 CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = 'Backend.urls'
